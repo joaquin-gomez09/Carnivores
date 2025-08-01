@@ -24,6 +24,30 @@
 
 ---
 
+## 🧪 Configuración del entorno virtual:
+
+1. Crear un entorno virtual (solo la primera vez):
+
+   ```bash
+   python -m venv venv
+   ```
+2. Activarlo:
+
+- En Windows:
+   ```bash
+   venv\Scripts\activate
+   ```
+- En macOS/Linux:
+   ```bash
+   source venv/bin/activate
+   ```
+3. Instalar dependencias:
+   ```bash
+   pip install pygame
+   ```
+
+---
+
 ## 🚀 Cómo ejecutar el juego
 
 1. Cloná el repositorio:
@@ -44,7 +68,7 @@
     ```
 ---
 
-📁 Estructura del proyecto
+## 📁 Estructura del proyecto
 ```bash
 Extinction/
 ├── carnivores.py
@@ -59,7 +83,7 @@ Extinction/
  ```
 
 
-🧩 Próximas mejoras- Implementación de meteoritos con colisiones
+## 🧩 Próximas mejoras- Implementación de meteoritos con colisiones
 - Sistema de puntuación y vidas
 - Sonido y música de fondo
 - Menú de inicio y pantalla de game over
@@ -67,4 +91,5 @@ Extinction/
 
 ---
 
-📜 Licencia: Este proyecto se encuentra bajo una licencia de uso personal y educativo. No está destinado para distribución comercial en su estado actual.
+## 📜 Licencia
+Este proyecto se encuentra bajo una licencia de uso personal y educativo. No está destinado para distribución comercial en su estado actual.
