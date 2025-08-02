@@ -24,6 +24,12 @@ pygame.display.set_icon(icono)
 # Fondo
 fondo = pygame.image.load("pygame_carnivores/imagenes/fondo.jpeg").convert()
 
+# Música de fondo
+
+pygame.mixer_music.load("pygame_carnivores/sonidos/Echoes of the Ancients (1).mp3") # Especificamos la ruta de audio
+pygame.mixer.music.play(-1) # Reproduce el audio del juego, el "-1" sirve para reproducir el audio en bucle
+# pygame.mixer.music.set_volume(0.5) especificamos el volumen al que queremos reproducir el audio 
+
 # Personaje
 quieto = pygame.image.load("pygame_carnivores/sprites/quieto.png")
 
@@ -44,6 +50,13 @@ camina_izquierda = [
     pygame.image.load("pygame_carnivores/sprites/caminando_5_izq.png"),
     pygame.image.load("pygame_carnivores/sprites/caminando_6_izq.png")
 ]
+
+# Sonido
+
+sonido_arriba = pygame.image.load("pygame_carnivores/sonidos/sonido_activo.png")
+sonido_abajo = pygame.image.load("pygame_carnivores/sonidos/sonido_bajando.png")
+sonido_mute = pygame.image.load("pygame_carnivores/sonidos/mute.png")
+sonido_max = pygame.image.load("pygame_carnivores/sonidos/sonido_maximo.png")
 
 # Posición y velocidad del personaje
 px = 50
@@ -125,4 +138,38 @@ while True:
         py += velocidad
 
     recargarPantalla()
+
+        # Control del audio
+
+    # Set = Establecer valores
+    # Get = Obtener valores
+
+    #  Bajar volumen
+
+    if keys[pygame.K_9] and pygame.mixer_music.get_volume() > 0.0:
+        pygame.mixer_music.set_volume(pygame.mixer_music.get_volume() - 0.01) # haciendo uso de get y set decrementamos el valor del volumen
+        PANTALLA.blit(sonido_abajo,(400,25)) #  al tener 0.01 especificamos tener 100 niveles de volumen
+    elif keys[pygame.K_9] and pygame.mixer_music.get_volume() == 0.0:
+        PANTALLA.blit(sonido_mute, (400, 25))
+
+    # Sube volumen
+
+    if keys[pygame.K_0] and pygame.mixer_music.get_volume() < 1.0:
+        pygame.mixer_music.set_volume(pygame.mixer_music.get_volume() + 0.01)
+        PANTALLA.blit(sonido_arriba,(400,25))
+    elif keys[pygame.K_0] and pygame.mixer_music.get_volume() == 1.0:
+        PANTALLA.blit(sonido_max, (400, 25))
+
+    # Desactivar sonido
+
+    elif keys[pygame.K_m]:
+        pygame.mixer_music.set_volume(0.0)
+        PANTALLA.blit(sonido_mute, (400,25))
+
+    # Reactivar sonido
+
+    elif keys[pygame.K_COMMA]:
+        pygame.mixer_music.set_volume(1.0)
+        PANTALLA.blit(sonido_max, (400,25))
+
     pygame.display.update()
