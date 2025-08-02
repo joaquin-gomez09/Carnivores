@@ -13,6 +13,7 @@
 - Mecánica de esquivar meteoritos (en desarrollo)
 - Sistema de animación por frames
 - Interfaz gráfica con ícono personalizado
+- Musica de juego
 
 ---
 
